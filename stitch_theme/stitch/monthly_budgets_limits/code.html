@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Budgeting &amp; Category Limits | Sovereign Vault</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191c1d",
+              "surface": "#f8f9fa",
+              "on-tertiary": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-tertiary-fixed": "#3a0a00",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "inverse-on-surface": "#f0f1f2",
+              "primary-fixed-dim": "#96ceeb",
+              "secondary": "#006a62",
+              "on-tertiary-container": "#ff9777",
+              "on-primary-container": "#83bad6",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e1e3e4",
+              "tertiary-fixed": "#ffdbd0",
+              "tertiary-container": "#822200",
+              "primary": "#003345",
+              "on-surface-variant": "#40484c",
+              "error": "#ba1a1a",
+              "inverse-primary": "#96ceeb",
+              "surface-container-high": "#e7e8e9",
+              "on-secondary-container": "#006f66",
+              "surface-dim": "#d9dadb",
+              "on-secondary-fixed-variant": "#005049",
+              "tertiary-fixed-dim": "#ffb59f",
+              "tertiary": "#5b1500",
+              "on-primary-fixed-variant": "#044d65",
+              "primary-container": "#004b63",
+              "outline-variant": "#c0c7cd",
+              "surface-bright": "#f8f9fa",
+              "secondary-fixed-dim": "#66d9cc",
+              "on-primary-fixed": "#001f2b",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e1e3e4",
+              "primary-fixed": "#bfe8ff",
+              "surface-tint": "#2a657e",
+              "surface-container-low": "#f3f4f5",
+              "surface-container": "#edeeef",
+              "on-tertiary-fixed-variant": "#852300",
+              "secondary-container": "#81f3e5",
+              "background": "#f8f9fa",
+              "on-surface": "#191c1d",
+              "on-secondary-fixed": "#00201d",
+              "secondary-fixed": "#84f5e8",
+              "outline": "#71787d",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-40 bg-slate-50 dark:bg-slate-900 shadow-sm dark:shadow-none flex justify-between items-center px-8 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="text-xl font-bold text-cyan-900 dark:text-cyan-50 font-['Manrope'] tracking-tight">Sovereign Vault</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-slate-500 dark:text-slate-400">
+<button class="material-symbols-outlined p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors active:scale-95 duration-150">notifications</button>
+<button class="material-symbols-outlined p-2 hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors active:scale-95 duration-150">settings</button>
+</div>
+<img alt="User profile avatar" class="w-8 h-8 rounded-full border border-outline-variant/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiuZMTpUgtzjPf66HtaXThnzBpnf7UygsYaJA2dznR8lpZ0l_a-r2I3MSNbb-KG_P_I-UeAPw1agFMkCnz8UKqZ-_t-iEUS9UPrKXZeQQReCeiYQ-5rG0srpFhx5H1yZVfcVJF0Lz_Z4-rmJLSbItJo7biRrXcvh2B4ctIF2dpzN8nQvq4Q_38GCj3iyzkiZlT7pv-mcsXJ33qzhPwtkNmjnSIyfx5dW8MvvIfXpw51E9ru9isNiJU5oC-WqgQ_lcu-ethdhkUOYcK"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden md:flex h-screen w-64 fixed left-0 top-0 flex flex-col bg-slate-100 dark:bg-slate-950 p-6 gap-8 z-50">
+<div class="flex flex-col gap-1">
+<span class="text-2xl font-black text-cyan-950 dark:text-white font-['Manrope']">The Vault</span>
+<span class="text-xs uppercase tracking-widest text-cyan-800/60 font-semibold">Private Banking</span>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-slate-900 rounded-lg transition-all font-['Inter'] text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-cyan-900/30 text-cyan-900 dark:text-cyan-100 rounded-lg shadow-sm font-['Inter'] text-sm font-medium tracking-wide translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">account_balance_wallet</span> Budgeting
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-slate-900 rounded-lg transition-all font-['Inter'] text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">receipt_long</span> Transactions
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 dark:text-slate-400 hover:text-cyan-800 hover:bg-slate-200 dark:hover:bg-slate-900 rounded-lg transition-all font-['Inter'] text-sm font-medium tracking-wide" href="#">
+<span class="material-symbols-outlined">event_repeat</span> Recurring
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-2">
+<button class="w-full py-3 px-4 bg-primary text-on-primary rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 active:scale-95 transition-transform">
+<span class="material-symbols-outlined">payments</span> Transfer Funds
+            </button>
+<div class="h-px bg-outline-variant/10 my-4"></div>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-cyan-800 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-lg">settings</span> Settings
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-slate-600 dark:text-slate-400 hover:text-cyan-800 transition-colors text-sm" href="#">
+<span class="material-symbols-outlined text-lg">help</span> Support
+            </a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 p-8 lg:p-12 min-h-screen">
+<div class="max-w-6xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h1 class="text-4xl lg:text-5xl font-extrabold text-primary tracking-tight mb-2">Budgeting</h1>
+<p class="text-on-surface-variant font-medium">Monthly allocation and expenditure overview for June 2024.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2.5 bg-surface-container-high text-on-surface font-semibold rounded-xl hover:bg-surface-container-highest transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">tune</span> Customize
+                    </button>
+<button class="px-6 py-2.5 bg-primary text-on-primary font-semibold rounded-xl shadow-xl shadow-primary/20 hover:opacity-90 transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">add</span> Create Category
+                    </button>
+</div>
+</section>
+<!-- Top Level Summary (Bento Style) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<!-- Main Status Card -->
+<div class="md:col-span-2 bg-gradient-to-br from-primary to-primary-container p-8 rounded-3xl text-white shadow-2xl relative overflow-hidden flex flex-col justify-between h-64">
+<div class="relative z-10">
+<span class="text-sm font-bold opacity-70 tracking-widest uppercase mb-1 block">Total Budget Status</span>
+<div class="flex items-baseline gap-2">
+<h2 class="text-5xl font-black tracking-tighter">$12,450.00</h2>
+<span class="text-lg opacity-80 font-medium">/ $15,000.00</span>
+</div>
+</div>
+<div class="relative z-10 w-full">
+<div class="flex justify-between items-end mb-3">
+<span class="text-sm font-semibold">83% of monthly limit reached</span>
+<span class="text-xs bg-white/20 px-2 py-1 rounded-full backdrop-blur-md">12 days remaining</span>
+</div>
+<div class="w-full h-3 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary-container w-[83%] rounded-full shadow-[0_0_15px_rgba(129,243,229,0.5)]"></div>
+</div>
+</div>
+<!-- Decorative mesh gradient -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-secondary rounded-full blur-[100px] opacity-20"></div>
+</div>
+<!-- Snapshot Widget -->
+<div class="bg-surface-container-lowest p-8 rounded-3xl shadow-sm flex flex-col justify-center border border-outline-variant/5">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest mb-4">Top Spending</span>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">shopping_cart</span>
+</div>
+<span class="font-bold text-on-surface">Groceries</span>
+</div>
+<span class="text-tertiary font-bold">+$420</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">restaurant</span>
+</div>
+<span class="font-bold text-on-surface">Dining Out</span>
+</div>
+<span class="text-secondary font-bold">-$120</span>
+</div>
+</div>
+<button class="mt-8 text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                        View analytics <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Category Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Category Card: Rent -->
+<div class="bg-surface-container p-6 rounded-3xl group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-surface-container-lowest rounded-2xl shadow-sm text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">home</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors material-symbols-outlined text-on-surface-variant">edit</button>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Rent &amp; Utilities</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-black text-primary">$3,200</span>
+<span class="text-sm text-on-surface-variant">/ $3,200</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mb-3">
+<div class="h-full bg-primary w-full rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">100% Utilized</span>
+</div>
+<!-- Category Card: Groceries -->
+<div class="bg-surface-container p-6 rounded-3xl group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-surface-container-lowest rounded-2xl shadow-sm text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">local_mall</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors material-symbols-outlined text-on-surface-variant">edit</button>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Groceries</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-black text-primary">$1,150</span>
+<span class="text-sm text-on-surface-variant">/ $1,500</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mb-3">
+<div class="h-full bg-secondary w-[76%] rounded-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">76% Utilized</span>
+<span class="text-xs font-bold text-secondary">Under budget</span>
+</div>
+</div>
+<!-- Category Card: Entertainment -->
+<div class="bg-surface-container p-6 rounded-3xl group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-surface-container-lowest rounded-2xl shadow-sm text-tertiary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">movie</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors material-symbols-outlined text-on-surface-variant">edit</button>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Entertainment</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-black text-primary">$850</span>
+<span class="text-sm text-on-surface-variant">/ $800</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mb-3">
+<div class="h-full bg-tertiary w-full rounded-full"></div>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-xs font-bold text-tertiary uppercase tracking-tighter">Over by $50</span>
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+</div>
+<!-- Category Card: Transport -->
+<div class="bg-surface-container p-6 rounded-3xl group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-surface-container-lowest rounded-2xl shadow-sm text-primary-container group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">commute</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors material-symbols-outlined text-on-surface-variant">edit</button>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Transport</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-black text-primary">$450</span>
+<span class="text-sm text-on-surface-variant">/ $1,200</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mb-3">
+<div class="h-full bg-primary-container w-[37%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">37% Utilized</span>
+</div>
+<!-- Category Card: Health -->
+<div class="bg-surface-container p-6 rounded-3xl group hover:bg-surface-container-high transition-all duration-300">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 bg-surface-container-lowest rounded-2xl shadow-sm text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined">health_and_safety</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-full transition-colors material-symbols-outlined text-on-surface-variant">edit</button>
+</div>
+<h3 class="text-xl font-bold text-on-surface mb-1">Health &amp; Wellness</h3>
+<div class="flex items-baseline gap-1 mb-6">
+<span class="text-2xl font-black text-primary">$310</span>
+<span class="text-sm text-on-surface-variant">/ $600</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mb-3">
+<div class="h-full bg-secondary w-[52%] rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">52% Utilized</span>
+</div>
+<!-- Add New Category Placeholder -->
+<div class="border-2 border-dashed border-outline-variant/30 p-6 rounded-3xl flex flex-col items-center justify-center text-center group hover:border-primary/40 hover:bg-primary/5 transition-all cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all mb-4">
+<span class="material-symbols-outlined">add</span>
+</div>
+<span class="font-bold text-on-surface">Add New Budget</span>
+<span class="text-sm text-on-surface-variant mt-1">Define limits for a new category</span>
+</div>
+</section>
+<!-- Quick Action Glass Card (Signature Component) -->
+<div class="fixed bottom-8 right-8 z-50">
+<div class="backdrop-blur-xl bg-white/80 dark:bg-slate-900/80 p-5 rounded-3xl shadow-2xl flex items-center gap-4 border border-white/40 ring-1 ring-black/5 animate-fade-in-up">
+<div class="w-12 h-12 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div>
+<p class="text-sm font-bold text-on-background">AI Budget Assistant</p>
+<p class="text-xs text-on-surface-variant">You're on track to save $450 this month.</p>
+</div>
+<button class="ml-4 p-2 bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-slate-50 dark:bg-slate-900 flex justify-around items-center py-4 px-2 z-50 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-cyan-700 dark:text-cyan-300">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Budget</span>
+</button>
+<button class="bg-primary -mt-12 w-14 h-14 rounded-full flex items-center justify-center text-on-primary shadow-xl shadow-primary/40 border-4 border-surface">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Trans</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-500">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Vault</span>
+</button>
+</nav>
+</body></html>

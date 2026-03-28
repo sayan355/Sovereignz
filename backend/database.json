@@ -1,0 +1,198 @@
+{
+  "users": [
+    {
+      "_id": "6140e2ed88001446",
+      "name": "lol",
+      "email": "duttatarpada02@gmail.com",
+      "password": "Vj!YqV44Jz6%fDe",
+      "preferences": {
+        "currency": "USD",
+        "locale": "en-US",
+        "timezone": "UTC"
+      }
+    },
+    {
+      "_id": "3cff0c1f2adc59fc",
+      "name": "Test",
+      "email": "test@test.com",
+      "password": "pw"
+    },
+    {
+      "_id": "faffd7e25812d891",
+      "name": "Test User",
+      "email": "newtest@test.com",
+      "password": "password",
+      "token": "b12142bf8bec226242032f22d240f23c",
+      "preferences": {
+        "currency": "GBP",
+        "locale": "de-DE",
+        "timezone": "UTC"
+      }
+    },
+    {
+      "_id": "553d91413508d289",
+      "name": "Another User",
+      "email": "another@test.com",
+      "password": "password",
+      "token": "2c7818aa2ec8de400bd36d970ec26505",
+      "preferences": {
+        "currency": "EUR",
+        "locale": "en-GB",
+        "timezone": "UTC"
+      }
+    },
+    {
+      "_id": "f368161df36063fd",
+      "name": "lol",
+      "email": "duttatarapada02@gmail.com",
+      "password": "lol",
+      "token": "59b7f38abd2a65bacd2354fa02fdf051",
+      "preferences": {
+        "currency": "INR",
+        "locale": "hi-IN",
+        "timezone": "Asia/Kolkata"
+      }
+    },
+    {
+      "_id": "b75efea54d3ba7b1",
+      "name": "Test User",
+      "email": "test1@example.com",
+      "password": "password123",
+      "token": "45f056c1e2bf59a52689af8e19ac0662",
+      "preferences": {
+        "currency": "GBP",
+        "locale": "en-GB",
+        "timezone": "Europe/London"
+      }
+    },
+    {
+      "_id": "96a262721dac57a0",
+      "name": "Test",
+      "email": "test123456@test.com",
+      "password": "password123",
+      "token": "04b6ee4f437e0d83c81847ab9b9b1579",
+      "preferences": {
+        "currency": "USD",
+        "locale": "en-US",
+        "timezone": "UTC"
+      }
+    },
+    {
+      "_id": "86dadd3c25b42a21",
+      "name": "lol",
+      "email": "datarpada02@gmail.com",
+      "password": "Vj!YqV44Jz6%fDe",
+      "token": "6327d92d8f7dc4d6fe2854d7f529c82c",
+      "preferences": {
+        "currency": "INR",
+        "locale": "en-IN",
+        "timezone": "Asia/Kolkata"
+      }
+    },
+    {
+      "_id": "58339d5ac4bfc184",
+      "name": "lol",
+      "email": "rohandutta764@gmail.com",
+      "password": "lol",
+      "token": "2079862f18245226f0193971c305c0f7",
+      "preferences": {
+        "currency": "INR",
+        "locale": "en-IN",
+        "timezone": "Asia/Kolkata"
+      }
+    }
+  ],
+  "transactions": [
+    {
+      "_id": "7eb51ab969b0c4a4",
+      "user": "6140e2ed88001446",
+      "type": "expense",
+      "amount": 234,
+      "category": {
+        "name": "4234"
+      },
+      "notes": "4234",
+      "date": "2026-03-28T00:41:07.521Z"
+    },
+    {
+      "_id": "afc59f16827255bc",
+      "user": "86dadd3c25b42a21",
+      "type": "income",
+      "amount": 423,
+      "category": {
+        "name": "423"
+      },
+      "notes": "234",
+      "date": "2026-03-28T02:20:07.903Z"
+    }
+  ],
+  "budgets": [
+    {
+      "_id": "9442bbe8e921edcd",
+      "user": "6140e2ed88001446",
+      "category": "ome",
+      "amount": 3242,
+      "period": "monthly"
+    }
+  ],
+  "goals": [
+    {
+      "_id": "8119ced7fd539f5d",
+      "user": "6140e2ed88001446",
+      "name": "34",
+      "targetAmount": 23423,
+      "currentAmount": 4324,
+      "deadline": "2026-03-31"
+    },
+    {
+      "_id": "d0b43bedcc1da4af",
+      "user": "6140e2ed88001446",
+      "name": "23432",
+      "targetAmount": 234,
+      "currentAmount": 34,
+      "deadline": "2026-03-31"
+    },
+    {
+      "_id": "e02c4c085a72c472",
+      "user": "6140e2ed88001446",
+      "name": "2342",
+      "targetAmount": 2342342,
+      "currentAmount": 243234,
+      "deadline": "2026-03-31"
+    }
+  ],
+  "bills": [
+    {
+      "_id": "8493195d63c1e265",
+      "user": "3cff0c1f2adc59fc",
+      "name": "bill",
+      "amount": 50,
+      "dueDate": "2026-10-10",
+      "isPaid": false
+    },
+    {
+      "_id": "75afbdf843402a54",
+      "user": "6140e2ed88001446",
+      "name": "ft",
+      "amount": 234,
+      "dueDate": "2026-03-29",
+      "isPaid": false
+    },
+    {
+      "_id": "3d2c2a008f4f6785",
+      "user": "6140e2ed88001446",
+      "name": "erer",
+      "amount": 324,
+      "dueDate": "2026-03-28",
+      "isPaid": false
+    },
+    {
+      "_id": "ad8c8cff6d21688b",
+      "user": "86dadd3c25b42a21",
+      "name": "ft",
+      "amount": 234,
+      "dueDate": "2026-03-29",
+      "isPaid": false
+    }
+  ]
+}
